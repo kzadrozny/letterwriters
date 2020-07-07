@@ -1,0 +1,19 @@
+{
+  "name": "letterwriters.com",
+  "version": "1.0.0",
+  "description": "archive website",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kzadrozny/letterwriters"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kzadrozny/letterwriters/issues"
+  },
+  "homepage": "https://github.com/kzadrozny/letterwriters#readme"
+}

@@ -1,0 +1,391 @@
+@import "media.scss";
+
+$main-font: 'Open Sans', sans-serif;
+$accent-font: 'Lora', serif;
+
+$main-color: #2b2e70;
+$accent-color: #fecc00;
+$pop-color: #97c8e4;
+
+@mixin auto-image {
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  align-self: end;
+  margin-right: auto;
+  margin-left: auto;
+  grid-column: span 1;
+}
+
+/*
+ * Global
+ * --------------------------------------------------
+ */
+
+body {
+  font-family: $main-font;
+}
+
+.visually-hidden { // For ADA helper text
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+main {
+  margin-top: 2em;
+}
+
+a {
+  color: #2A5DB0;
+  &:visited {
+    color: darken(#2A5DB0, 30%);
+  }
+}
+
+/*
+ * Fonts
+ * --------------------------------------------------
+ */
+
+h1 {
+  font-size: 1.4rem;
+  color: darken($accent-color, 10%);
+  margin-top: 0;
+  margin-bottom: 0.25em;
+  border-bottom: 1px solid $accent-color;
+}
+
+h2 {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: $main-color;
+  border-bottom: 1px solid $main-color;
+}
+
+h3 {
+  font-size: 1.1em;
+  font-family: $accent-font;
+  font-weight: 300;
+  color: darken($accent-color, 25%);
+  margin-bottom: 0;
+  h2 + & {
+    margin-top: 0;
+  }
+}
+
+h4 {
+  font-size: 1em;
+  font-weight: 600;
+  color: $pop-color;
+  margin-bottom: 0;
+}
+
+p {
+  line-height: 1.5em;
+}
+
+.descriptor {
+  font-family: $accent-font; 
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.project-type {
+  @extend .descriptor;
+  & + h3 {
+    margin-top: 0;
+  }
+}
+
+.highlight {
+  font-weight: 600;
+}
+
+.pop {
+  font-weight: 700;
+  color: $pop-color;
+}
+
+.intro {
+  font-family: $accent-font;
+  color: black;
+  font-style: italic;
+  font-size: 1.3em;
+  background-color: lighten($pop-color, 23%);
+  padding: 1em;
+  p {
+    line-height: 1.7em;
+  }
+}
+
+/*
+ * Navigation
+ * --------------------------------------------------
+ */
+
+ header {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  align-items: center;
+  img {
+    float: left;
+    max-width: 5em;
+    margin-top: -1px;
+    z-index: 1;
+    @include respond-to(small) {
+      max-width: 6em;
+    }
+  }
+}
+
+nav {
+  font-size: 0.85em;
+  color: black;
+  background-color: $pop-color;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0px 0px 15px #000;
+  .brand a {
+    font-family: $accent-font;
+    font-style: italic;
+    font-size: 1.1em;
+    color: black;
+    padding-top: 1em;
+    padding-left: 1em;
+    &:visited {
+      color: black;
+    }
+  }
+  ul {
+    padding-left: 1em;
+    list-style: none;
+    display: inline-flex;
+    li {
+      padding-left: 2em;
+      &:first-child {
+        padding-left: 0;
+      } 
+    }
+  }
+  a {
+    color: black;
+    text-decoration: none;
+    &:visited {
+      color: black;
+    }
+  }
+}
+
+/*
+ * Hero
+ * --------------------------------------------------
+ */
+
+.hero {
+  height: 50px;
+  margin: 50px -15px 30px -15px;
+  padding: 30px;
+  color: $main-color;
+  background: url("../../images/hero.jpg") center $main-color no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include respond-to(small) {
+    height: 100px;
+    margin-top: 0;
+  }
+  p {
+    font-weight: 100;
+    font-style: italic;
+    font-size: 1.2em;
+    @include respond-to(small) {
+      font-size: 1.7em;
+    }
+  }
+}
+
+
+/*
+ * Portfolio Grid
+ * --------------------------------------------------
+ */
+
+.cards {
+  display: grid;
+  grid-gap: 30px;
+  max-width: 960px;
+  margin: 0 auto 30px;
+  grid-template-columns: 1fr 1fr;
+  @include respond-to(small) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  article.featured {
+    grid-column: span 2;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    padding: 10px;
+    // border: 1px solid $pop-color;
+    background-color: lighten($pop-color, 23%);
+    img {
+      height: 100%;
+    }
+  }
+  h2 {
+    margin-bottom: 0;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    @include respond-to(small) {
+      grid-column-start: 1;
+      grid-column-end: 5;
+    }
+  }
+}
+
+article {
+  display: inline-grid;
+  align-self: flex-start;
+  .title-object {
+    align-self: start;
+  }
+  .img-object {
+    align-self: start;
+  }
+  img {
+    @include auto-image;
+    @include respond-to(small) {
+      height: 150px;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  h3 {
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+  }
+  ul {
+    padding-inline-start: 20px;
+  }
+  li {
+    margin-bottom: 0.5em;
+  }
+}
+
+/*
+ * Section Styling
+ * --------------------------------------------------
+ */
+
+ #about {
+  h2 {
+    margin-bottom: 0;
+  }
+  img {
+    max-height: 250px;
+    padding: 1em 0 0 0;
+    @include respond-to(small) {
+      float: left;
+      padding: 1em 1em 1em 0;
+    }
+  }
+ }
+
+ section:last-child {
+  padding-bottom: 2em;
+ }
+
+ #archive {
+  li {
+    line-height: 1.7rem;
+  }
+}
+
+#now {
+  grid-gap: 10px 30px;
+  h3 {
+    margin-top: 0;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 5px;
+    li {
+      line-height: 1.7rem;
+    }
+  }
+}
+
+.text-block {
+  text-align: center
+}
+
+.bounding-box {
+  @include respond-to(small) {
+    border-bottom: 1px dashed $pop-color;
+  }
+}
+
+ /*
+ * General Grids
+ * --------------------------------------------------
+ */
+
+.single-column {
+  max-width: 960px;
+  margin: 0 auto 30px;
+}
+
+.two-column {
+  display: grid;
+  max-width: 960px;
+  margin: 0 auto 30px;
+  @include respond-to(small) {
+    grid-template-columns: 1fr 1fr;
+  }
+  img {
+    @include auto-image;
+  }
+  h2, .section-intro {
+    @include respond-to(small) {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+  }
+}
+
+.third-column {
+  display: grid;
+  grid-gap: 10px 30px;
+  max-width: 960px;
+  margin: 0 auto 30px;
+  @include respond-to(small) {
+      grid-template-columns: 2fr 1fr;
+      .object-page & {
+        grid-template-columns: 3fr 2fr;
+      }
+      div + div {
+        border-left: 1px dashed lighten($pop-color, 35%);
+        padding-left: 2em;
+      }
+  }
+  h2 {
+    @include respond-to(small) {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+  }
+  p {
+    line-height: 1.75rem;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
