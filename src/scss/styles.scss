@@ -190,17 +190,17 @@ nav {
  */
 
 .hero {
-  height: 50px;
-  margin: 50px -15px 30px -15px;
-  padding: 30px;
+  // height: 50px;
+  margin: 50px -20px 0px -20px;
+  // padding: 30px;
   color: $main-color;
-  background: url("../../images/hero.jpg") center $main-color no-repeat;
-  background-size: cover;
+  background: url("../../images/banner-chevrons.gif") center no-repeat;
+  background-size: contain;
   display: flex;
   align-items: center;
   justify-content: center;
   @include respond-to(small) {
-    height: 100px;
+    height: 80px;
     margin-top: 0;
   }
   p {
@@ -284,6 +284,15 @@ article {
  * --------------------------------------------------
  */
 
+ .jump:before {
+  display: block;
+  content: " ";
+  margin-top: -50px;
+  height: 50px;
+  visibility: hidden;
+  pointer-events: none;
+}
+
  #about {
   h2 {
     margin-bottom: 0;
@@ -298,8 +307,10 @@ article {
   }
  }
 
- section:last-child {
-  padding-bottom: 2em;
+ section {
+  &:last-child {
+    padding-bottom: 2em;
+  }
  }
 
  #archive {

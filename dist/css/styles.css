@@ -145,18 +145,16 @@ nav {
  * --------------------------------------------------
  */
 .hero {
-  height: 50px;
-  margin: 50px -15px 30px -15px;
-  padding: 30px;
+  margin: 50px -20px 0px -20px;
   color: #2b2e70;
-  background: url("../../images/hero.jpg") center #2b2e70 no-repeat;
-  background-size: cover;
+  background: url("../../images/banner-chevrons.gif") center no-repeat;
+  background-size: contain;
   display: flex;
   align-items: center;
   justify-content: center; }
   @media (min-width: 48em) {
     .hero {
-      height: 100px;
+      height: 80px;
       margin-top: 0; } }
   .hero p {
     font-weight: 100;
@@ -228,6 +226,14 @@ article {
  * Section Styling
  * --------------------------------------------------
  */
+.jump:before {
+  display: block;
+  content: " ";
+  margin-top: -50px;
+  height: 50px;
+  visibility: hidden;
+  pointer-events: none; }
+
 #about h2 {
   margin-bottom: 0; }
 
