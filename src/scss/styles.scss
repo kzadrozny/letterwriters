@@ -293,7 +293,7 @@ article {
   pointer-events: none;
 }
 
- #about {
+ .about {
   h2 {
     margin-bottom: 0;
   }
@@ -313,13 +313,13 @@ article {
   }
  }
 
- #archive {
+ .archive {
   li {
     line-height: 1.7rem;
   }
 }
 
-#now {
+.now {
   grid-gap: 10px 30px;
   h3 {
     margin-top: 0;

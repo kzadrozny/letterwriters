@@ -234,32 +234,32 @@ article {
   visibility: hidden;
   pointer-events: none; }
 
-#about h2 {
+.about h2 {
   margin-bottom: 0; }
 
-#about img {
+.about img {
   max-height: 250px;
   padding: 1em 0 0 0; }
   @media (min-width: 48em) {
-    #about img {
+    .about img {
       float: left;
       padding: 1em 1em 1em 0; } }
 
 section:last-child {
   padding-bottom: 2em; }
 
-#archive li {
+.archive li {
   line-height: 1.7rem; }
 
-#now {
+.now {
   grid-gap: 10px 30px; }
-  #now h3 {
+  .now h3 {
     margin-top: 0; }
-  #now ul {
+  .now ul {
     list-style: none;
     padding-left: 0;
     margin-top: 5px; }
-    #now ul li {
+    .now ul li {
       line-height: 1.7rem; }
 
 .text-block {
